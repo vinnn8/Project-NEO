@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-image: url('images/default-bg.jpg'); /* Background default */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+    min-height: 100vh;
+  }
+  
+  .card {
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    border: none;
+  }
+  
+  h1 {
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+  .btn {
+    font-weight: bold;
+  }
+  
+  
