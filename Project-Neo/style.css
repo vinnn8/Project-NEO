@@ -1,22 +1,18 @@
-/* Reset dan Base */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-image: url('images/default-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
     color: white;
+    min-height: 100vh;
   }
   
   .container {
     padding: 40px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
-    max-width: 800px;
+    max-width: 900px;
     margin: 50px auto;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 12px;
   }
   
   .title {
@@ -25,7 +21,6 @@ body, html {
     margin-bottom: 30px;
   }
   
-  /* Event Card */
   .event-grid {
     display: flex;
     gap: 20px;
@@ -34,13 +29,13 @@ body, html {
   }
   
   .event-card {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
     padding: 20px;
     border-radius: 12px;
-    width: 280px;
+    width: 250px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(255,255,255,0.1);
     transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
   }
   .event-card:hover {
     transform: scale(1.05);
@@ -57,8 +52,11 @@ body, html {
   .event-card button:hover {
     background-color: #009acd;
   }
+  .price {
+    font-weight: bold;
+    margin-top: 5px;
+  }
   
-  /* Form Section */
   .form-section {
     text-align: center;
   }
@@ -80,8 +78,6 @@ body, html {
   .form-section button[type="submit"]:hover {
     background-color: #1e7e34;
   }
-  
-  /* Back Button */
   .back-button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -94,17 +90,13 @@ body, html {
   .back-button:hover {
     background-color: #e0a800;
   }
-  
-  /* Output */
   .output {
     margin-top: 20px;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.15);
     padding: 15px;
     border-radius: 10px;
   }
-  
   .hidden {
     display: none;
   }
-  
   

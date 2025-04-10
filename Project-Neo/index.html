@@ -15,14 +15,27 @@
     <div id="eventCards" class="event-grid">
       <div class="event-card">
         <h3>Tech Conference 2025</h3>
-        <p>Sebuah konferensi teknologi terbesar tahun ini.</p>
+        <p>Konferensi teknologi masa depan</p>
+        <p class="price">Rp150.000 / tiket</p>
         <button onclick="showForm('tech')">Lihat Detail</button>
       </div>
-
       <div class="event-card">
         <h3>Music Fest Festival</h3>
-        <p>Festival musik luar ruangan dengan banyak penampilan keren!</p>
+        <p>Festival musik outdoor terbesar</p>
+        <p class="price">Rp100.000 / tiket</p>
         <button onclick="showForm('music')">Lihat Detail</button>
+      </div>
+      <div class="event-card">
+        <h3>Gaming Expo 2025</h3>
+        <p>Event untuk pecinta game & teknologi</p>
+        <p class="price">Rp120.000 / tiket</p>
+        <button onclick="showForm('gaming')">Lihat Detail</button>
+      </div>
+      <div class="event-card">
+        <h3>Anime Fest 2025</h3>
+        <p>Kumpul akbar para wibu & cosplayer</p>
+        <p class="price">Rp80.000 / tiket</p>
+        <button onclick="showForm('anime')">Lihat Detail</button>
       </div>
     </div>
 
@@ -33,6 +46,8 @@
         <input type="text" id="name" placeholder="Nama Lengkap" required />
         <input type="email" id="email" placeholder="Email" required />
         <input type="tel" id="phone" placeholder="Nomor Telepon" required />
+        <input type="number" id="ticketQty" placeholder="Jumlah Tiket" min="1" value="1" required />
+        <p id="priceInfo"></p>
         <button type="submit">Daftar</button>
       </form>
 
