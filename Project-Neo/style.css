@@ -1,28 +1,110 @@
-body {
+/* Reset dan Base */
+body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-image: url('images/default-bg.jpg'); /* Background default */
+    background-image: url('images/default-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: background-image 0.5s ease-in-out;
     min-height: 100vh;
+    color: white;
   }
   
-  .card {
-    backdrop-filter: blur(8px);
-    border-radius: 15px;
+  .container {
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 50px auto;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  
+  /* Event Card */
+  .event-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .event-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+  }
+  .event-card:hover {
+    transform: scale(1.05);
+  }
+  .event-card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00bfff;
+    color: white;
+    cursor: pointer;
+  }
+  .event-card button:hover {
+    background-color: #009acd;
+  }
+  
+  /* Form Section */
+  .form-section {
+    text-align: center;
+  }
+  .form-section input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
     border: none;
   }
-  
-  h1 {
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  .form-section button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .form-section button[type="submit"]:hover {
+    background-color: #1e7e34;
   }
   
-  .btn {
-    font-weight: bold;
+  /* Back Button */
+  .back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .back-button:hover {
+    background-color: #e0a800;
+  }
+  
+  /* Output */
+  .output {
+    margin-top: 20px;
+    background-color: rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .hidden {
+    display: none;
   }
   
   

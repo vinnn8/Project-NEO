@@ -5,55 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NeoEvent Portal</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body id="mainBody">
-  <div class="container py-5 text-white text-center">
-    <h1 class="mb-4">🎫 NeoEvent - Portal Acara Online</h1>
-    <p class="mb-5">Jelajahi dan daftar ke event favoritmu!</p>
 
-    <div class="row justify-content-center g-4" id="eventCards">
-      <div class="col-md-5">
-        <div class="card bg-dark text-white shadow-lg">
-          <div class="card-body">
-            <h3 class="card-title">Tech Conference 2025</h3>
-            <p class="card-text">Ikuti pembicara kelas dunia dan inovasi teknologi terkini!</p>
-            <button class="btn btn-outline-primary w-100" onclick="showForm('Tech Conference 2025', 'tech-bg.jpg')">Lihat Detail</button>
-          </div>
-        </div>
+  <div class="container">
+    <h1 class="title">🌟 Portal Event NeoEvent</h1>
+
+    <!-- Daftar Event -->
+    <div id="eventCards" class="event-grid">
+      <div class="event-card">
+        <h3>Tech Conference 2025</h3>
+        <p>Sebuah konferensi teknologi terbesar tahun ini.</p>
+        <button onclick="showForm('tech')">Lihat Detail</button>
       </div>
 
-      <div class="col-md-5">
-        <div class="card bg-dark text-white shadow-lg">
-          <div class="card-body">
-            <h3 class="card-title">Music Fest Festival</h3>
-            <p class="card-text">Nikmati festival musik terbesar dengan artis ternama!</p>
-            <button class="btn btn-outline-success w-100" onclick="showForm('Music Fest Festival', 'music-bg.jpg')">Lihat Detail</button>
-          </div>
-        </div>
+      <div class="event-card">
+        <h3>Music Fest Festival</h3>
+        <p>Festival musik luar ruangan dengan banyak penampilan keren!</p>
+        <button onclick="showForm('music')">Lihat Detail</button>
       </div>
     </div>
 
     <!-- Form Pendaftaran -->
-    <div class="mt-5" id="formSection" style="display:none;">
-      <h2 class="mb-4" id="formTitle"></h2>
-      <form id="registerForm" class="bg-light p-4 rounded shadow text-dark">
-        <div class="mb-3">
-          <input type="text" id="name" class="form-control" placeholder="Nama Lengkap" required>
-        </div>
-        <div class="mb-3">
-          <input type="email" id="email" class="form-control" placeholder="Email Aktif" required>
-        </div>
-        <input type="hidden" id="eventName">
-        <button type="submit" class="btn btn-success w-100">Daftar Sekarang</button>
+    <div id="formSection" class="form-section hidden">
+      <h2>Pendaftaran Event</h2>
+      <form id="registerForm" onsubmit="handleSubmit(event)">
+        <input type="text" id="name" placeholder="Nama Lengkap" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="tel" id="phone" placeholder="Nomor Telepon" required />
+        <button type="submit">Daftar</button>
       </form>
 
-      <div class="mt-4 text-white" id="dataOutput" style="display: none;">
-        <h5>📋 Data Pendaftaran Tersimpan:</h5>
-        <p id="savedName"></p>
-        <p id="savedEmail"></p>
-        <p id="savedEvent"></p>
-      </div>
+      <button class="back-button" onclick="goBack()">⬅ Kembali ke Daftar Event</button>
+
+      <div id="dataOutput" class="output hidden"></div>
     </div>
   </div>
 

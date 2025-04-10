@@ -1,44 +1,51 @@
-function showForm(eventTitle, backgroundImage) {
-    // Ganti background
-    document.getElementById('mainBody').style.backgroundImage = `url('images/${backgroundImage}')`;
+function showForm(eventType) {
+    const background = {
+      tech: 'images/tech-bg.jpg',
+      music: 'images/music-bg.jpg'
+    };
   
-    // Tampilkan form
+    document.getElementById('mainBody').style.backgroundImage = `url('${background[eventType]}')`;
+  
     document.getElementById('eventCards').style.display = 'none';
     document.getElementById('formSection').style.display = 'block';
   
-    // Set data event
-    document.getElementById('formTitle').textContent = `Form Pendaftaran - ${eventTitle}`;
-    document.getElementById('eventName').value = eventTitle;
-  
-    // Cek localStorage
-    const saved = JSON.parse(localStorage.getItem('formData'));
-    if (saved && saved.event === eventTitle) {
-      document.getElementById('savedName').textContent = `Nama: ${saved.name}`;
-      document.getElementById('savedEmail').textContent = `Email: ${saved.email}`;
-      document.getElementById('savedEvent').textContent = `Event: ${saved.event}`;
-      document.getElementById('dataOutput').style.display = 'block';
-    } else {
-      document.getElementById('dataOutput').style.display = 'none';
-    }
+    // Simpan tipe event
+    localStorage.setItem('currentEvent', eventType);
   }
   
-  document.getElementById('registerForm').addEventListener('submit', function(e) {
+  function goBack() {
+    document.getElementById('formSection').style.display = 'none';
+    document.getElementById('eventCards').style.display = 'flex';
+    document.getElementById('mainBody').style.backgroundImage = "url('images/default-bg.jpg')";
+    document.getElementById('registerForm').reset();
+    document.getElementById('dataOutput').style.display = 'none';
+  }
+  
+  function handleSubmit(e) {
     e.preventDefault();
+  
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
-    const event = document.getElementById('eventName').value;
+    const phone = document.getElementById('phone').value.trim();
+    const eventType = localStorage.getItem('currentEvent');
   
-    const data = { name, email, event };
-    localStorage.setItem('formData', JSON.stringify(data));
+    const data = { name, email, phone, event: eventType };
   
-    // Tampilkan
-    document.getElementById('savedName').textContent = `Nama: ${name}`;
-    document.getElementById('savedEmail').textContent = `Email: ${email}`;
-    document.getElementById('savedEvent').textContent = `Event: ${event}`;
-    document.getElementById('dataOutput').style.display = 'block';
+    // Simpan ke localStorage
+    localStorage.setItem('lastRegistration', JSON.stringify(data));
   
-    // Kosongkan input
-    document.getElementById('name').value = '';
-    document.getElementById('email').value = '';
-  });
+    showOutput(data);
+  }
+  
+  function showOutput(data) {
+    const output = document.getElementById('dataOutput');
+    output.innerHTML = `
+      <h4>✅ Data Pendaftaran</h4>
+      <p><strong>Nama:</strong> ${data.name}</p>
+      <p><strong>Email:</strong> ${data.email}</p>
+      <p><strong>Telepon:</strong> ${data.phone}</p>
+      <p><strong>Event:</strong> ${data.event === 'tech' ? 'Tech Conference 2025' : 'Music Fest Festival'}</p>
+    `;
+    output.style.display = 'block';
+  }
   
